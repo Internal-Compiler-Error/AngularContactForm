@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header">
+    Form Entries
+  </div>
+  <div class="card-header">
+    <button><a routerLink="/ContactForm" routerLinkActive="active">Add Entry</a></button>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>select</th>
+          <th>id</th>
+          <th>email</th>
+          <th>sender</th>
+          <th>options</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let form of forms">
+          <td><input type="checkbox"></td>
+          <td>{{form.id}}</td>
+          <td>{{form.email}}</td>
+          <td>{{form.name}}</td>
+          <td>
+            <button>delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
