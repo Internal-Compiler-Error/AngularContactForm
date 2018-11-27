@@ -1,58 +1,12 @@
-<div class="container">
-  <h3>Angular Form</h3>
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <ul class="nav nav-pills">
+    <li class="nav-link">
+      <a routerLink="/ContactForm" routerLinkActive="active">Contact Form</a>
+    </li>
 
-
-  <form #form="ngForm" novalidate>
-
-    <div class="form-group">
-      <label>Search: </label>
-      <input type="text" class="form-control" name="serach" ngModel required>
-    </div>
-
-    <div class="form-group">
-      <label>Last Name: </label>
-      <input type="text" class="form-control" name="lastName" [(ngModel)]='lastName' required>
-    </div>
-
-    <div class="custom-checkbox">
-      <label>checkbox: </label>
-      <input type="checkbox" name="box" ngModel>
-    </div>
-
-    <label>Radio Heading</label>
-    <div class="custom-radio">
-      <label>
-        <input type="radio" name="radio" value="1024" ngModel>
-        1024
-      </label>
-    </div>
-
-    <div class="custom-radio">
-      <label>
-        <input type="radio" name="radio" value="2048" ngModel>
-        2048
-      </label>
-    </div>
-
-    <div class="form-group">
-      <select class="form-control">
-        <label>label yo!</label>
-        <option *ngFor="let op of Options">
-          {{op}}
-        </option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <input class="form-control" type="date" name="date" ngModel>
-    </div>
-
-    <div class="form-group">
-      <input class="form-control" type="color" name="date" ngModel>
-    </div>
-
-    <button class="btn btn-primary">Submit</button>
-  </form>
-
-
-</div>
+    <li class="nav-link">
+      <a routerLink="/Edit" routerLinkActive="active">Edit</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
