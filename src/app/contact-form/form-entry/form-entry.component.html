@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="tab-pane">
+    <h3>Raw</h3>
+    <pre>
+      {{form | json}}
+    </pre>
+  </div>
+
+  <div>
+    <h3>Email</h3>
+    {{form.email}}
+  </div>
+
+  <div>
+    <h3>Sender</h3>
+    {{form.name}}
+  </div>
+
+
+  <div>
+    <h3>Message</h3>
+    {{form.message}}
+  </div>
+
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <td>Address Line 1</td>
+        <td>City</td>
+        <td>Province</td>
+        <td>Country</td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>{{form.addressLine1}}</td>
+        <td>{{form.city}}</td>
+        <td>{{form.province}}</td>
+        <td>{{form.country}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
