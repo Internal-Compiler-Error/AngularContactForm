@@ -3,29 +3,19 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {EditComponent} from './contact-form/edit/edit.component';
-import {ContactFormComponent} from './contact-form/contact-form/contact-form.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormEntryComponent} from './contact-form/form-entry/form-entry.component';
+import {RoutingModule} from './router/router.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ContactFormComponent,
-    EditComponent,
-    FormEntryComponent
+    AppComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    RouterModule,
-    RouterModule.forRoot([
-      {path: 'ContactForm', component: ContactFormComponent},
-      {path: 'Edit', component: EditComponent}
-    ])
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

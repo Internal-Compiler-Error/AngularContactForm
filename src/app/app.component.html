@@ -1,12 +1,14 @@
 <nav class='navbar navbar-expand navbar-light bg-light'>
   <ul class="nav nav-pills">
-    <li class="nav-link">
-      <a routerLink="/ContactForm" routerLinkActive="active">Contact Form</a>
+    <li class="nav-link navbar-brand">
+      <a routerLink="/welcome" routerLinkActive="active">Home</a>
     </li>
 
-    <li class="nav-link">
-      <a routerLink="/Edit" routerLinkActive="active">Edit</a>
-    </li>
+    <!--<li class="nav-link">-->
+    <!--<a routerLink="/Edit" routerLinkActive="active">Edit</a>-->
+    <!--</li>-->
   </ul>
 </nav>
-<router-outlet></router-outlet>
+<div class=”container”>
+  <router-outlet></router-outlet>
+</div>
