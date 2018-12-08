@@ -1,0 +1,13 @@
+.flex-container-center-hv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.margin-tb-30 {
+  margin-top: 15%;
+  /*margin-bottom: 20%;*/
+}
+

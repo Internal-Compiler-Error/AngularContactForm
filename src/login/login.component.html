@@ -1,0 +1,28 @@
+<mat-card class="flex-container-center-hv margin-tb-30">
+  <mat-card>
+    <mat-card-title>
+      Login
+    </mat-card-title>
+
+    <mat-card-content>
+      <form #form="ngForm" (submit)="loginService.login(form)" name="login">
+        <div>
+          <mat-form-field>
+            <input [(ngModel)]="loginForm.id" matInput name="Id" placeholder="Username" type="text">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input [(ngModel)]="loginForm.password" matInput name="password" placeholder="Password" type="password">
+          </mat-form-field>
+        </div>
+        <div>
+          <button color="accent" mat-raised-button>
+            Login
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-card>
+

@@ -1,0 +1,129 @@
+<mat-card>
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="reactiveContactFormEdit">
+        <div class="flex-container-row">
+
+          <div>
+            <mat-form-field>
+              <input formControlName="name"
+                     matInput
+                     placeholder="Name"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <input formControlName="email"
+                     matInput
+                     placeholder="Email"
+                     type="email"/>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <input formControlName="cell"
+                     matInput
+                     placeholder="Cell Phone Number"
+                     type="tel"/>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div formGroupName="address">
+          <div class="flex-container-column">
+            <mat-form-field>
+              <mat-select
+                formControlName="country"
+                placeholder="Country">
+                <mat-option
+                  *ngFor="let country of countries"
+                  [value]="country.value">
+                  {{country.value}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+          <div class="flex-container-row">
+            <div>
+              <mat-form-field>
+                <input
+                  formControlName="addressLine1"
+                  matInput
+                  placeholder="Address Line 1"
+                  type="text"/>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field>
+                <input formControlName="city"
+                       matInput
+                       placeholder="City"
+                       type="text"/>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field>
+                <input formControlName="province"
+                       matInput
+                       placeholder="Province"
+                       type="text"/>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="flex-container-column">
+            <mat-form-field>
+              <input formControlName="postalCode"
+                     matInput
+                     placeholder="Postal Code"
+                     type="text"/>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="flex-container-column-center">
+
+          <mat-form-field class="full-width">
+            <input formControlName="subject"
+                   matInput
+                   placeholder="Subject"
+                   type="text"/>
+          </mat-form-field>
+
+        </div>
+
+        <div class="flex-container-column-center">
+          <mat-form-field class="full-width">
+          <textarea class="min-height-25em flex-auto"
+                    formControlName="message"
+                    matInput
+                    maxlength="4000"
+                    placeholder="Message"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button
+            [disabled]="reactiveContactFormEdit.invalid"
+            mat-button
+            type="submit">
+            Submit
+          </button>
+        </div>
+
+
+        {{reactiveContactFormEdit.value | json}}
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-card>
