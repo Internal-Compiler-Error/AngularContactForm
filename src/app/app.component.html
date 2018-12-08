@@ -1,14 +1,34 @@
-<nav class='navbar navbar-expand navbar-light bg-light'>
-  <ul class="nav nav-pills">
-    <li class="nav-link navbar-brand">
-      <a routerLink="/welcome" routerLinkActive="active">Home</a>
-    </li>
+<!--<mat-card>-->
+<mat-toolbar color="primary">
 
-    <!--<li class="nav-link">-->
-    <!--<a routerLink="/Edit" routerLinkActive="active">Edit</a>-->
-    <!--</li>-->
-  </ul>
-</nav>
-<div class=”container”>
+<span class="some-right-margin">
+  DM&T Contact Form Utility
+</span>
+
+  <span class="fill-remaining-space">
+
+  </span>
+
+  <button class="some-right-margin" mat-button routerLink="/welcome" routerLinkActive="active">
+    Home
+  </button>
+
+  <button class="some-right-margin" mat-button routerLink="/contact-form-list" routerLinkActive="active">
+    Contact Form List
+  </button>
+
+  <button class="some-right-margin" mat-button routerLink="/contact-form" routerLinkActive="active">
+    Contact Form
+  </button>
+
+  <button class="some-right-margin" mat-button routerLink="/login" routerLinkActive="active">
+    Login
+  </button>
+
+</mat-toolbar>
+<!--</mat-card>-->
+
+
+<div>
   <router-outlet></router-outlet>
 </div>

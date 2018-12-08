@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ContactForm} from './contact-form';
+import {ContactForm} from '../contact-form/contact-form';
 import {Observable} from 'rxjs';
 
 
@@ -10,12 +10,17 @@ const httpOptions = {
   })
 };
 
+
 const apiUrl = 'api/v1/contact-form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactFormService {
+
+  forms: ContactForm[] = [];
+
+  displayedColumns: string[] = ['select', 'id', 'name', 'email', 'message'];
 
   constructor(private http: HttpClient) {
   }
@@ -27,6 +32,7 @@ export class ContactFormService {
 
   postContactForm(contactForm: ContactForm): Observable<ContactForm> {
     let body = JSON.stringify(contactForm);
+    console.log(body);
     return this.http.post<ContactForm>(apiUrl, body, httpOptions);
 
   }
@@ -36,9 +42,9 @@ export class ContactFormService {
     return this.http.delete(url, httpOptions);
   }
 
-  getContactForm(id: number) {
+  getContactForm(id: number): Observable<ContactForm> {
     const url = `${apiUrl}/${id}`;
-    return this.http.delete(url, httpOptions);
+    return this.http.get<ContactForm>(url, httpOptions);
   }
 
 }

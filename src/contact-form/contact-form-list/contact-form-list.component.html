@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-title>Contact Form List</mat-card-title>
+
+
+  <mat-card-actions>
+    <button color="accent" mat-raised-button routerLink="/contact-form">New Form</button>
+  </mat-card-actions>
+
+  <mat-card-content>
+
+    <mat-table [dataSource]="form" class="mat-elevation-z8">
+
+
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox>
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox>
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let i">{{i.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let i">{{i.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let i">{{i.email}}</mat-cell>
+      </ng-container>
+
+      <ng-container mat-sort-header matColumnDef="message">
+        <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
+        <mat-cell *matCellDef="let i">{{i.message}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef>
+          Edit
+        </mat-header-cell>
+        <mat-cell *matCellDef="let i">
+          <button [routerLink]="['/contact-form','{{i.id}}']" mat-button>
+            Edit
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="contactFormService.displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: contactFormService.displayedColumns;"></mat-row>
+
+      <mat-paginator [length]="100"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     [pageSize]="10">
+
+      </mat-paginator>
+
+    </mat-table>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,104 @@
+.width-8 {
+  width: 80%;
+}
+
+.min-height-25em {
+  min-height: 25em;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.flex-container-row-left {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+}
+
+.top-margin-3 {
+  margin-top: 3%;
+}
+
+.bottom-margin-3 {
+  margin-bottom: 3%;
+}
+
+
+.flex-container-column > div {
+}
+
+.padding-1 {
+  padding: 1%
+}
+
+.min-width-75 {
+  min-width: 60%;
+}
+
+.full-width {
+  min-width: 100%;
+}
+
+
+.half-width {
+  width: 50%;
+}
+
+
+#base-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+
+.flex-auto {
+  flex: 1 0 45%;
+}
+
+.width-50 {
+  min-width: 50%;
+}
+
+.width-30 {
+  min-width: 30%;
+}
+
+.flex-container-column-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+}
+
+
+div > mat-form-field {
+  width: 100%;
+}
+
+.flex-container-row > div {
+  width: 30%;
+}
