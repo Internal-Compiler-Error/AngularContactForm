@@ -16,6 +16,7 @@ import {
   MatTableModule
 } from '@angular/material';
 import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-form-entry-edit.component';
+import {ContactFormRoutingModule} from './contact-form-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-f
     MatCardModule,
     ReactiveFormsModule,
     CommonModule,
+    ContactFormRoutingModule
   ],
   exports: [],
 })

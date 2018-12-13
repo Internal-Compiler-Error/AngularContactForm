@@ -43,16 +43,16 @@
         <mat-cell *matCellDef="let i">{{i.message}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef>
-          Edit
-        </mat-header-cell>
-        <mat-cell *matCellDef="let i">
-          <button [routerLink]="['/contact-form','{{i.id}}']" mat-button>
-            Edit
-          </button>
-        </mat-cell>
-      </ng-container>
+      <!--<ng-container matColumnDef="edit">-->
+      <!--<mat-header-cell *matHeaderCellDef>-->
+      <!--Edit-->
+      <!--</mat-header-cell>-->
+      <!--<mat-cell *matCellDef="let i">-->
+      <!--<button mat-button [routerLink]=['/contact-form',i.id]>-->
+      <!--Edit-->
+      <!--</button>-->
+      <!--</mat-cell>-->
+      <!--</ng-container>-->
 
       <mat-header-row *matHeaderRowDef="contactFormService.displayedColumns; sticky: true"></mat-header-row>
       <mat-row *matRowDef="let row; columns: contactFormService.displayedColumns;"></mat-row>

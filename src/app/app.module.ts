@@ -8,7 +8,7 @@ import {RoutingModule} from './router/router.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
 import {LoginModule} from './login/login.module';
-import {ContactFormModule} from './contact-form/contact-form.module';
+import {ContactFormRoutingModule} from './contact-form/contact-form-routing.module';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import {ContactFormModule} from './contact-form/contact-form.module';
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ContactFormModule,
+    ContactFormRoutingModule,
     RoutingModule
   ],
   providers: [],

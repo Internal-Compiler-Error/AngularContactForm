@@ -11,7 +11,7 @@ const httpOptions = {
 };
 
 
-const apiUrl = 'api/v1/contact-form';
+const apiUrl = 'api.bilwang2001.com/v1';
 
 @Injectable({
   providedIn: 'root'
