@@ -7,7 +7,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {RoutingModule} from '../router/router.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
-import {LoginModule} from '../login/login.module';
+import {LoginModule} from './login/login.module';
+import {ContactFormModule} from './contact-form/contact-form.module';
+
 
 
 @NgModule({
@@ -21,8 +23,9 @@ import {LoginModule} from '../login/login.module';
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
-    RoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ContactFormModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
