@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ContactFormComponent} from './contact-form/contact-form.component';
 import {ContactFormListComponent} from './contact-form-list/contact-form-list.component';
-import {Route, RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule,
@@ -17,12 +16,6 @@ import {
   MatTableModule
 } from '@angular/material';
 import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-form-entry-edit.component';
-
-
-const routes: Route[] = [
-  {path: 'contact-form', component: ContactFormComponent},
-  {path: 'contact-form/:id', component: ContactFormEntryEditComponent}
-];
 
 @NgModule({
   declarations: [
@@ -44,7 +37,6 @@ const routes: Route[] = [
     MatCardModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild(routes)
   ],
   exports: [],
 })
