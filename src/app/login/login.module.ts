@@ -1,13 +1,10 @@
 import {NgModule} from '@angular/core';
-import {Route, RouterModule} from '@angular/router';
 import {LoginComponent} from './login.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {LoginRoutingModule} from './login-routing.module';
 
-const routes: Route[] = [{
-  path: 'login', component: LoginComponent
-}];
 
 @NgModule({
   declarations: [
@@ -20,9 +17,9 @@ const routes: Route[] = [{
     MatFormFieldModule,
     MatInputModule,
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    LoginRoutingModule
+  ],
+  exports: []
 })
-
 export class LoginModule {
 }

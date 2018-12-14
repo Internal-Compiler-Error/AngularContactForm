@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactFormService} from '../contact-form-service/contact-form.service';
-import {ContactForm} from '../contact-form/contact-form';
+import {ContactForm} from '../data-model/contact-form';
 
 @Component({
   selector: 'app-edit',

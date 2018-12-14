@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Country} from '../data-model/country';
+import {CanadianProvince} from '../data-model/canadian-province';
+import {ContactFormService} from '../contact-form-service/contact-form.service';
 
 @Component({
   selector: 'app-contact-form-entry-edit',
@@ -7,10 +10,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./contact-form-entry-edit.component.css']
 })
 export class ContactFormEntryEditComponent implements OnInit {
+  countries: Country[];
+  canadianProvinces: CanadianProvince[];
+
 
   reactiveContactFormEdit: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private contactFormService: ContactFormService) {
   }
 
   ngOnInit() {
@@ -43,6 +49,9 @@ export class ContactFormEntryEditComponent implements OnInit {
           Validators.maxLength(4000)]
       ],
     });
-  }
 
+
+    this.countries = this.contactFormService.countries;
+    this.canadianProvinces = this.contactFormService.canadianProvinces;
+  }
 }

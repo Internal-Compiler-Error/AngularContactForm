@@ -15,14 +15,16 @@ import {
   MatSelectModule,
   MatTableModule
 } from '@angular/material';
-import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-form-entry-edit.component';
 import {ContactFormRoutingModule} from './contact-form-routing.module';
+import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-form-entry-edit.component';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {ContactFormData} from './data-model/contact-form-data';
 
 @NgModule({
   declarations: [
     ContactFormListComponent,
     ContactFormComponent,
-    ContactFormEntryEditComponent,
+    ContactFormEntryEditComponent
   ],
   imports: [
     MatOptionModule,
@@ -38,6 +40,7 @@ import {ContactFormRoutingModule} from './contact-form-routing.module';
     MatCardModule,
     ReactiveFormsModule,
     CommonModule,
+    InMemoryWebApiModule.forRoot(ContactFormData),
     ContactFormRoutingModule
   ],
   exports: [],

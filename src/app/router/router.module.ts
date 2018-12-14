@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {WelcomeComponent} from '../welcome/welcome/welcome.component';
 import {WelcomeModule} from '../welcome/welcome.module';
 import {ContactFormModule} from '../contact-form/contact-form.module';
+import {LoginModule} from '../login/login.module';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     WelcomeModule,
     CommonModule,
     ContactFormModule,
+    LoginModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
