@@ -13,7 +13,7 @@ const httpOptions = {
 };
 
 
-const apiUrl = 'v1/contact-form';
+const apiUrl = 'http://api.billwang2001.com/v1/contact-form';
 
 @Injectable({
   providedIn: 'root'
@@ -325,46 +325,38 @@ export class ContactFormService {
     }
   ];
 
-  mock: ContactForm[] = [{
-    id: 0,
-    email: 'bill79231725',
-    name: 'string',
-    message: 'string',
-    addressLine1: 'string',
-    country: 'string',
-    subject: 'string',
-    cell: 'string',
-    province: 'string',
-    city: 'string'
-  }];
-
   forms: ContactForm[] = [];
 
-  displayedColumns: string[] = ['select', 'id', 'name', 'email', 'message', 'edit'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'message', 'edit', 'delete'];
 
   constructor(private http: HttpClient) {
   }
 
-
+  // get request, returns a json array of contact forms
   getContactForms(): Observable<ContactForm[]> {
     return this.http.get<ContactForm[]>(apiUrl);
   }
 
+  // post request, returns the copy of the contact form
   postContactForm(contactForm: ContactForm): Observable<ContactForm> {
-    let body = JSON.stringify(contactForm);
-    console.log(body);
-    return this.http.post<ContactForm>(apiUrl, body, httpOptions);
-
+    return this.http.post<ContactForm>(apiUrl, JSON.stringify(contactForm), httpOptions);
   }
 
-  deleteContactForm(id: number) {
+  // del request, returns the copy of the deleted contact form
+  deleteContactForm(id: number): Observable<{}> {
     const url = `${apiUrl}/${id}`;
     return this.http.delete(url, httpOptions);
   }
 
+  // individual get request, returns the copy of the contact form
   getContactForm(id: number): Observable<ContactForm> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<ContactForm>(url, httpOptions);
+  }
+
+  putContactForm(id: number, contactForm: ContactForm): Observable<ContactForm> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.put<ContactForm>(url, JSON.stringify(contactForm), httpOptions);
   }
 
 }
