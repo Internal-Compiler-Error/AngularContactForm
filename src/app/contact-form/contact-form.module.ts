@@ -17,8 +17,6 @@ import {
 } from '@angular/material';
 import {ContactFormRoutingModule} from './contact-form-routing.module';
 import {ContactFormEntryEditComponent} from './contact-form-entry-edit/contact-form-entry-edit.component';
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {ContactFormData} from './data-model/contact-form-data';
 
 @NgModule({
   declarations: [
@@ -40,7 +38,6 @@ import {ContactFormData} from './data-model/contact-form-data';
     MatCardModule,
     ReactiveFormsModule,
     CommonModule,
-    InMemoryWebApiModule.forRoot(ContactFormData),
     ContactFormRoutingModule
   ],
   exports: [],

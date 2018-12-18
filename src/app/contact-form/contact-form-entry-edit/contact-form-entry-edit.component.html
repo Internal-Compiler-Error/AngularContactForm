@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card>
     <mat-card-content>
-      <form [formGroup]="reactiveContactFormEdit">
+      <form (ngSubmit)="amendForm(reactiveContactFormEdit)" [formGroup]="reactiveContactFormEdit" novalidate>
         <div class="flex-container-row">
 
           <div>
@@ -9,6 +9,7 @@
               <input formControlName="name"
                      matInput
                      placeholder="Name"
+                     required
                      type="text"/>
             </mat-form-field>
           </div>
@@ -18,6 +19,7 @@
               <input formControlName="email"
                      matInput
                      placeholder="Email"
+                     required
                      type="email"/>
             </mat-form-field>
           </div>
@@ -108,21 +110,19 @@
                     formControlName="message"
                     matInput
                     maxlength="4000"
-                    placeholder="Message"></textarea>
+                    placeholder="Message"
+                    required></textarea>
           </mat-form-field>
         </div>
 
         <div>
-          <button
-            [disabled]="reactiveContactFormEdit.invalid"
-            mat-button
-            type="submit">
-            Submit
+          <button [disabled]="reactiveContactFormEdit.invalid"
+                  color="primary"
+                  mat-button
+                  type="submit">
+            Amend
           </button>
         </div>
-
-
-        {{reactiveContactFormEdit.value | json}}
       </form>
     </mat-card-content>
   </mat-card>

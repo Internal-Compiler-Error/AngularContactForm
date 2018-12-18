@@ -3,6 +3,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Country} from '../data-model/country';
 import {CanadianProvince} from '../data-model/canadian-province';
 import {ContactFormService} from '../contact-form-service/contact-form.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ContactForm} from '../data-model/contact-form';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-contact-form-entry-edit',
@@ -10,13 +13,34 @@ import {ContactFormService} from '../contact-form-service/contact-form.service';
   styleUrls: ['./contact-form-entry-edit.component.css']
 })
 export class ContactFormEntryEditComponent implements OnInit {
+
+  constructor(private formBuilder: FormBuilder,
+              private link: ActivatedRoute,
+              private contactFormService: ContactFormService,
+              private router: Router) {
+  }
+
+
   countries: Country[];
   canadianProvinces: CanadianProvince[];
 
 
   reactiveContactFormEdit: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private contactFormService: ContactFormService) {
+  public amendForm(form: FormGroup) {
+
+    let params: Params;
+    let formId: number;
+
+    this.link.params.subscribe(i => {
+      params = i;
+    });
+
+    formId = params['id'];
+    this.contactFormService.putContactForm(formId, form.value).subscribe();
+    alert('amended, this would be removed once i figure out promise');
+    this.router.navigateByUrl('/contact-form-list');
+
   }
 
   ngOnInit() {
@@ -49,9 +73,25 @@ export class ContactFormEntryEditComponent implements OnInit {
           Validators.maxLength(4000)]
       ],
     });
-
-
     this.countries = this.contactFormService.countries;
     this.canadianProvinces = this.contactFormService.canadianProvinces;
+
+    this.getCurrentForm().subscribe(
+      i => {
+        this.reactiveContactFormEdit.patchValue(i);
+      });
   }
+
+  private getCurrentForm(): Observable<ContactForm> {
+    let params: Params;
+    let formId: number;
+
+    this.link.params.subscribe(i => {
+      params = i;
+    });
+
+    formId = params['id'];
+    return this.contactFormService.getContactForm(formId);
+  }
+
 }

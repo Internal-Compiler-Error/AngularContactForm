@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactFormService} from '../contact-form-service/contact-form.service';
 import {ContactForm} from '../data-model/contact-form';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
 import {Country} from '../data-model/country';
 import {CanadianProvince} from '../data-model/canadian-province';
 
@@ -25,8 +24,8 @@ export class ContactFormComponent implements OnInit {
   }
 
   submitForm(contactForm: FormGroup) {
-    this.contactFormService.postContactForm(this.contactForm).subscribe();
-    alert('Posted!');
+    this.contactFormService.postContactForm(contactForm.value).subscribe();
+    alert('posted, this would be removed once i figure out promise');
     this.router.navigateByUrl('/contact-form-list');
   }
 

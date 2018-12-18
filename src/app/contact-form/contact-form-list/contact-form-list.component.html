@@ -1,68 +1,74 @@
-<mat-card>
-  <mat-card-title>Contact Form List</mat-card-title>
+<div>
+  <mat-card>
+    <mat-card-title>Contact Form List</mat-card-title>
 
 
-  <mat-card-actions>
-    <button color="accent" mat-raised-button routerLink="/contact-form">New Form</button>
-  </mat-card-actions>
+    <mat-card-actions>
+      <button color="accent" mat-raised-button routerLink="/contact-form">New Form</button>
+    </mat-card-actions>
 
-  <mat-card-content>
+    <mat-card-content>
 
-    <mat-table [dataSource]="form" class="mat-elevation-z8">
-
-
-      <ng-container matColumnDef="select">
-        <mat-header-cell *matHeaderCellDef>
-          <mat-checkbox>
-          </mat-checkbox>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <mat-checkbox>
-          </mat-checkbox>
-        </mat-cell>
-      </ng-container>
+      <mat-table [dataSource]="form" class="mat-elevation-z8">
 
 
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-        <mat-cell *matCellDef="let i">{{i.id}}</mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let i">{{i.id}}</mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-        <mat-cell *matCellDef="let i">{{i.name}}</mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let i">{{i.name}}</mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
-        <mat-cell *matCellDef="let i">{{i.email}}</mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+          <mat-cell *matCellDef="let i">{{i.email}}</mat-cell>
+        </ng-container>
 
-      <ng-container mat-sort-header matColumnDef="message">
-        <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
-        <mat-cell *matCellDef="let i">{{i.message}}</mat-cell>
-      </ng-container>
+        <ng-container mat-sort-header matColumnDef="message">
+          <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
+          <mat-cell *matCellDef="let i">{{i.message}}</mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef>
-          Edit
-        </mat-header-cell>
-        <mat-cell *matCellDef="let i">
-          <button mat-button [routerLink]="['/contact-form',i.id]">
+        <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef>
             Edit
-          </button>
-        </mat-cell>
-      </ng-container>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let i">
+            <button [routerLink]="['/contact-form',i.id]"
+                    color="primary"
+                    mat-button>
+              Edit
+            </button>
+          </mat-cell>
+        </ng-container>
 
-      <mat-header-row *matHeaderRowDef="contactFormService.displayedColumns; sticky: true"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: contactFormService.displayedColumns;"></mat-row>
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef>
+            Delete
+          </mat-header-cell>
 
-      <mat-paginator [length]="100"
-                     [pageSizeOptions]="[5, 10, 25, 100]"
-                     [pageSize]="10">
+          <mat-cell *matCellDef="let i">
+            <button (click)="deleteForm(i.id)"
+                    color="warn"
+                    mat-button>
+              Delete
+            </button>
+          </mat-cell>
+        </ng-container>
 
-      </mat-paginator>
+        <mat-header-row *matHeaderRowDef="contactFormService.displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: contactFormService.displayedColumns;"></mat-row>
 
-    </mat-table>
-  </mat-card-content>
-</mat-card>
+        <!--<mat-paginator [length]="100"-->
+        <!--[pageSizeOptions]="[5, 10, 25, 100]"-->
+        <!--[pageSize]="10">-->
+
+        <!--</mat-paginator>-->
+
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
+</div>
